@@ -323,7 +323,7 @@ async function proceedToCheckout() {
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     try {
-        const response = await fetch("http://localhost:5000/api/payment/create-order", {
+        const response = await fetch("https://hero-shop.onrender.com/api/payment/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ amount: totalAmount })
