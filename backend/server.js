@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 
 dotenv.config({ path: './.env' });
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cors({ origin: '*', credentials: true }));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/payment', paymentRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;

@@ -313,38 +313,68 @@ function removeFromCart(index) {
     updateCartDisplay();
 }
 
-function proceedToCheckout() {
-    const checkoutBtn = document.getElementById("checkout-btn");
-    if (!checkoutBtn) return;
+async function proceedToCheckout() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
 
-    checkoutBtn.disabled = true;
-    checkoutBtn.innerHTML = "Processing...";
+    const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length === 0) return;
+    try {
+        const response = await fetch("http://localhost:5000/api/payment/create-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: totalAmount })
+        });
 
-    document.body.innerHTML = `
-        <div class="checkout-wrapper">
-            <div class="checkout-animation">
-                <h1>Processing Your Order...</h1>
-                <p>Hang tight! We are confirming your order details.</p>
-                <div class="loader"></div>
-                <p>You will be redirected shortly...</p>
-            </div>
-        </div>
-    `;
+        const { orderId, amount } = await response.json();
 
-    setTimeout(() => {
-        document.body.innerHTML = `
-            <div class="order-confirmation-wrapper">
-                <h1 class="order-confirmation">🎉 Order Confirmed! Thank you for shopping with us! 🎉</h1>
-            </div>
-        `;
-        localStorage.removeItem("cart");
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 3000);
-    }, 3000);
+        const options = {
+            key: "rzp_test_uEuRlgA1l5afIQ",
+            amount: amount,
+            currency: "INR",
+            name: "Hero Shop",
+            description: "Order Payment",
+            order_id: orderId,
+            handler: function (response) {
+                document.body.innerHTML = `
+                    <div class="checkout-wrapper">
+                        <div class="checkout-animation">
+                            <h1>Processing Your Order...</h1>
+                            <p>Hang tight! We are confirming your order details.</p>
+                            <div class="loader"></div>
+                            <p>You will be redirected shortly...</p>
+                        </div>
+                    </div>
+                `;
+
+                setTimeout(() => {
+                    document.body.innerHTML = `
+                        <div class="order-confirmation-wrapper">
+                            <h1 class="order-confirmation">🎉 Order Confirmed! Thank you for shopping with us! 🎉</h1>
+                        </div>
+                    `;
+
+                    localStorage.removeItem("cart");
+
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 3000);
+                }, 3000);
+            },
+            prefill: {
+                email: "customer@example.com",
+                contact: "9999999999"
+            }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+    } catch (error) {
+        alert("Payment failed. Please try again.");
+    }
 }
 
 function isLoggedIn() {
