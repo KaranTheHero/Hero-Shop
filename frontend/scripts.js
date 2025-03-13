@@ -136,8 +136,8 @@ const AuthModule = (() => {
     };
 
     const endpoints = {
-        signup: "https://hero-shop-backend.onrender.com/api/auth/signup",
-        login: "https://hero-shop-backend.onrender.com/api/auth/login",
+        signup: "https://hero-shop.onrender.com/api/auth/signup",
+        login: "https://hero-shop.onrender.com/api/auth/login",
     };
 
     const init = () => {
