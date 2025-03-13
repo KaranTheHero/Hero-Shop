@@ -30,9 +30,9 @@ Make sure the following software is installed on your system:
 Inside the **backend** folder, create a `.env` file with the following content:
 
 ```env
-MONGODB_URI=mongodb+srv://KaranTheHero:KaranTheHero@karanthehero.pbhwb.mongodb.net/hero-shop?retryWrites=true&w=majority&appName=KaranTheHero
+MONGODB_URI=mongodb+srv://Username:Password@Clustername.pbhwb.mongodb.net/hero-shop?retryWrites=true&w=majority&appName=KaranTheHero
 PORT=5000
-JWT_SECRET=KaranTheHero
+JWT_SECRET=Assign_Custom_Secret
 JWT_EXPIRES_IN=90d
 ```
 ✅ **Never share your `.env` file online or upload it to GitHub!**
