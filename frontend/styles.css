@@ -57,6 +57,19 @@ button.normal,
     transition: 0.2s;
 }
 
+button.pro-normal {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
 body {
     width: 100%;
 }
@@ -886,6 +899,11 @@ button.white {
     width: 40%;
 }
 
+#newsletter form {
+    display: flex;
+    width: 100%;
+}
+
 #newsletter input {
     height: 3.125rem;
     padding: 0 1.25em;
@@ -967,7 +985,7 @@ footer .follow .icon i:nth-child(1):hover {
 }
 
 footer .follow .icon i:nth-child(2):hover {
-    color: #1DA1F2;
+    color: rgba(231, 233, 234, 1);
 }
 
 footer .follow .icon i:nth-child(3):hover {

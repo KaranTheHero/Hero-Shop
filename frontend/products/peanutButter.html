@@ -197,8 +197,10 @@
             </p>
         </div>
         <div class="form">
-            <input type="text" placeholder="Enter E-mail address">
-            <button class="normal">Sign Up</button>
+            <form action="../login.html" method="GET">
+                <input type="email" placeholder="Enter E-mail address" required>
+                <button class="pro-normal" type="submit">Sign Up</button>
+            </form>
         </div>
     </section>
 
@@ -212,40 +214,41 @@
             <div class="follow">
                 <h4>Follow Us</h4>
                 <div class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-pinterest-p"></i>
-                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-facebook-f" onclick="window.location.href='https://www.facebook.com'"></i>
+                    <i class="fa-brands fa-x-twitter" onclick="window.location.href='https://x.com'"></i>
+                    <i class="fab fa-instagram" onclick="window.location.href='https://www.instagram.com'"></i>
+                    <i class="fab fa-pinterest-p" onclick="window.location.href='https://www.pinterest.com'"></i>
+                    <i class="fab fa-youtube" onclick="window.location.href='https://www.youtube.com'"></i>
                 </div>
             </div>
         </div>
         <div class="col">
             <h4>About</h4>
-            <a href="#">About Us</a>
+            <a href="../about.html">About Us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+            <a href="../contact.html">Contact Us</a>
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
+            <a href="../signup.html">Sign In</a>
+            <a href="../cart.html">View Cart</a>
             <a href="#">Privacy Policy</a>
             <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
+            <a href="../cart.html">Track My Order</a>
             <a href="#">Help</a>
         </div>
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-                <img src="../img/pay/app.jpg" alt="IOS App">
-                <img src="../img/pay/play.jpg" alt="Play Store">
+                <img src="../img/pay/app.jpg" alt="IOS App" onclick="window.location.href='https://www.apple.com'">
+                <img src="../img/pay/play.jpg" alt="Play Store"
+                    onclick="window.location.href='https://play.google.com'">
             </div>
             <p>Secured Payment Gateways</p>
-            <img src="../img/pay/pay.png" alt="Paying Cards">
+            <img src="../img/pay/pay.png" alt="Paying Cards" onclick="window.location.href='../cart.html'">
         </div>
         <div class="copyright">
             <p>&copy; 2021, The Hero - HTML CSS JavaScript E-commerce Template</p>
