@@ -2706,6 +2706,16 @@ footer .copyright {
         margin-bottom: 10px;
     }
 
+    #newsletter form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #newsletter h4,
+    p {
+        text-align: center;
+    }
+
     footer .copyright {
         text-align: start;
     }
@@ -3076,6 +3086,16 @@ footer .copyright {
 
     #feature .fe-box {
         width: 45%;
+    }
+
+    #newsletter form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #newsletter h4,
+    p {
+        text-align: center;
     }
 
     footer {
