@@ -320,6 +320,17 @@ async function proceedToCheckout() {
         return;
     }
 
+    const addressInput = document.getElementById("delivery-address");
+    const deliveryAddress = addressInput.value.trim();
+
+    if (!deliveryAddress) {
+        alert("Please enter your delivery address before proceeding to checkout.");
+        addressInput.focus();
+        return;
+    }
+
+    localStorage.setItem("deliveryAddress", deliveryAddress);
+
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     try {

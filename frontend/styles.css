@@ -1685,21 +1685,74 @@ footer .copyright {
     margin-top: 40px;
 }
 
-.coupon {
+.left-section {
     width: 45%;
-    margin-bottom: 30px;
+}
+
+.coupon {
+    margin-bottom: 20px;
 }
 
 .coupon h3 {
-    padding-bottom: 15px;
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.coupon div {
+    display: flex;
+    gap: 10px;
 }
 
 .coupon input {
-    width: 60%;
+    width: 70%;
     padding: 12px;
     outline: none;
-    margin-right: 10px;
     border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.coupon input:focus {
+    border-color: aqua;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+}
+
+.coupon button.normal {
+    width: 20%;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coupon button.normal:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.address h3 {
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: #222;
+}
+
+.address input {
+    width: 70%;
+    padding: 12px;
+    outline: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.address input:focus {
+    border-color: aqua;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
 }
 
 .coupon button,
@@ -2554,6 +2607,39 @@ footer .copyright {
         font-size: 20px;
         padding: 30px;
     }
+
+    .coupon div {
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+
+    .coupon input {
+        width: 65%;
+        font-size: 15px;
+    }
+
+    .coupon button.normal {
+        width: 25%;
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .address input {
+        width: 95%;
+        font-size: 15px;
+    }
+
+    .left-section {
+        width: 40%;
+    }
+
+    .total {
+        width: 50%;
+    }
+
+    #cart-total {
+        gap: 30px;
+    }
 }
 
 @media (max-width: 477px) {
@@ -2906,17 +2992,8 @@ footer .copyright {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
-    #cart-total {
-        flex-direction: column;
-    }
-
     .coupon {
         width: 100%;
-    }
-
-    .total {
-        width: 100%;
-        padding: 20px;
     }
 
     .login-container {
@@ -3012,12 +3089,43 @@ footer .copyright {
         padding: 10px;
     }
 
-    .total {
-        padding: 15px;
+    #cart-total {
+        flex-direction: column;
     }
 
     .item-total {
         font-size: 1rem;
+    }
+
+    .coupon div {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .coupon input,
+    .coupon button.normal,
+    .address input {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .coupon button.normal {
+        justify-content: center;
+    }
+
+    .address h3 {
+        font-size: 20px;
+    }
+
+    .left-section {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .total {
+        width: 100%;
+        padding: 20px 15px;
     }
 }
 
@@ -3160,5 +3268,14 @@ footer .copyright {
 
     .social-login p {
         text-align: center;
+    }
+
+    .coupon div {
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+
+    #cart-total {
+        gap: 30px;
     }
 }
