@@ -1124,6 +1124,15 @@ footer .copyright {
 }
 
 #single-pro-details-style {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    overflow-x: auto;
+    white-space: nowrap;
+    column-gap: 50px;
+    padding-bottom: 10px;
+}
+
+#single-pro-details-style-para {
     display: flex;
     justify-content: space-between;
 }
@@ -1239,7 +1248,7 @@ footer .copyright {
 }
 
 .social-sharing a.twitter {
-    background: #1da1f2;
+    background: black;
 }
 
 .social-sharing a.pinterest {
@@ -3161,12 +3170,12 @@ footer .copyright {
     }
 
     #single-pro-details-style {
-        display: flex;
+        display: grid;
+        grid-template-columns: min-content 1fr;
         overflow-x: auto;
         white-space: nowrap;
-        gap: 50px;
+        column-gap: 50px;
         padding-bottom: 10px;
-        justify-content: space-between;
     }
 
     .pro-details-type,
@@ -3194,16 +3203,6 @@ footer .copyright {
 
     #feature .fe-box {
         width: 45%;
-    }
-
-    #newsletter form {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    #newsletter h4,
-    p {
-        text-align: center;
     }
 
     footer {
