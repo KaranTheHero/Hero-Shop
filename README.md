@@ -14,26 +14,27 @@ Welcome to **Hero Shop**, a fully functional and modern e-commerce platform. Thi
 ```
 Hero Shop/
 ├── backend/       # Node.js + MongoDB API
-│   ├── config/       # Database connection
-│   ├── controllers/  # Authentication & Payment Logic
-│   ├── middleware/   # Error handling & security
-│   ├── models/       # Database schemas
-│   ├── routes/       # API endpoints
-│   ├── .env          # Environment variables (DO NOT SHARE)
-│   ├── .gitignore    # Git Ignore File
-│   └── server.js     # Main backend server file
+│   ├── package.json    # Backend Dependencies
+│   ├── config/         # Database connection
+│   ├── controllers/    # Authentication & Payment Logic
+│   ├── middleware/     # Error handling & security
+│   ├── models/         # Database schemas
+│   ├── routes/         # API endpoints
+│   ├── .env            # Environment variables (DO NOT SHARE)
+│   ├── .gitignore      # Git Ignore File
+│   └── server.js       # Main backend server file
 ├── frontend/      # HTML + CSS + JavaScript (Client-side)
-│   ├── img/          # Images Folder
-│   ├── products/     # Product Assets
-│   ├── index.html    # Home Page
-│   ├── about.html    # About Page
-│   ├── cart.html     # Shopping Cart Page
-│   ├── contact.html  # Contact Page
-│   ├── login.html    # Login Page
-│   ├── product.html  # Product Details Page
-│   ├── signup.html   # Signup Page
-│   ├── styles.css    # Website Styling
-│   └── scripts.js    # API Interactions
+│   ├── img/            # Images Folder
+│   ├── products/       # Product Assets
+│   ├── index.html      # Home Page
+│   ├── about.html      # About Page
+│   ├── cart.html       # Shopping Cart Page
+│   ├── contact.html    # Contact Page
+│   ├── login.html      # Login Page
+│   ├── product.html    # Product Details Page
+│   ├── signup.html     # Signup Page
+│   ├── styles.css      # Website Styling
+│   └── scripts.js      # API Interactions
 ```
 
 ---
@@ -61,7 +62,6 @@ JWT_EXPIRES_IN=90d
 RAZORPAY_KEY_ID=YourRazorpayKey
 RAZORPAY_KEY_SECRET=YourRazorpaySecret
 ```
-
 ✅ **Never share your `.env` file online or commit it to GitHub!**
 
 ---
@@ -74,7 +74,7 @@ cd HeroShop/backend
 ```
 2. Install dependencies:
 ```bash
-npm install
+npm install express mongoose razorpay bcryptjs jsonwebtoken cors dotenv express-validator compression helmet
 ```
 3. Install development dependencies for auto-restart:
 ```bash
@@ -88,6 +88,10 @@ npm run dev  # For Development Mode (Auto Restart)
 ```
 MongoDB Connected...
 Server running on port 5000
+```
+If you want to run the server without auto-restart, use:
+```bash
+npm start
 ```
 
 ### 🚀 Deploying Backend to Render
@@ -109,15 +113,16 @@ npm start
 ```bash
 cd ../frontend
 ```
-2. Open `index.html` in **Live Server** (for local testing).
-3. Ensure API endpoints in `scripts.js` are correct:
+2. Install **Live Server Extension** in VS Code.
+3. Right-click on **index.html** → **Open with Live Server**.
+4. Ensure API endpoints in `scripts.js` are correct:
 ```js
 const endpoints = {
     signup: 'https://your-render-api.com/api/auth/signup',
     login: 'https://your-render-api.com/api/auth/login'
 };
 ```
-4. Refresh your browser – the website should be live!
+5. Refresh your browser – the website should be live!
 
 ### 🚀 Deploying Frontend to Vercel
 1. Go to [Vercel](https://vercel.com/) and create an account.
@@ -156,6 +161,8 @@ To upload your project to GitHub:
 2. In the project root, initialize Git:
 ```bash
 git init
+git config --global user.name "YourUsername"
+git config --global user.email "youremail@example.com"
 git add .
 git commit -m "Initial Commit"
 git remote add origin https://github.com/YourUsername/YourRepositoryName.git
@@ -165,10 +172,14 @@ git push -u origin main
 
 ---
 
-## 💡 Final Notes
-- **Your project is fully deployed on Vercel (frontend) & Render (backend).**
-- **Follow security best practices:** Never expose your `.env` file.
-- **Ensure your API and frontend URLs are correct after deployment.**
-- **This project is fully tested and working!** 🚀
+## 🚀 Deploying to Other Platforms
+You can deploy your website to:
+- **Vercel**: [https://vercel.com/](https://vercel.com/)
+- **Heroku**: [https://www.heroku.com/](https://www.heroku.com/)
+- **Render**: [https://www.render.com/](https://www.render.com/)
 
-👨‍💻 Happy Coding!
+---
+
+## 💡 Final Notes
+✅ This guide is **100% Tested and Working**.
+👨‍💻 Happy Coding! 🚀
