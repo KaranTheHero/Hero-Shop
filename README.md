@@ -1,28 +1,52 @@
-# Hero Shop Website Setup Guide By KTH
+# 🚀 Hero Shop - E-Commerce Website (Deployed on Vercel & Render)
 
-Welcome to the **Hero Shop** E-Commerce Website! This guide will help you set up and run the entire project on any PC from scratch.
+Welcome to **Hero Shop**, a fully functional and modern e-commerce platform. This guide provides a **step-by-step setup**, deployment instructions, and everything you need to run the project **locally** or on **the cloud**.
 
-## 📌 Project Folder Structure
+---
+
+## 🌍 Live Deployment
+- **Frontend (Vercel):** [Hero Shop on Vercel](https://karan-the-hero-shop.vercel.app)
+- **Backend (Render):** [Hero Shop API on Render](https://hero-shop.onrender.com)
+
+---
+
+## 📁 Project Structure
 ```
 Hero Shop/
-├─ backend/       # Node.js + MongoDB API (Backend Folder)
-│   ├─ package.json    # Backend Dependencies
-│   ├─ .env           # Environment Variables
-│   └─ .gitignore     # Git Ignore File
-├─ frontend/      # HTML + CSS + JS Website (Frontend Folder)
-└─ img/           # Images Folder
+├── backend/       # Node.js + MongoDB API
+│   ├── config/       # Database connection
+│   ├── controllers/  # Authentication & Payment Logic
+│   ├── middleware/   # Error handling & security
+│   ├── models/       # Database schemas
+│   ├── routes/       # API endpoints
+│   ├── .env          # Environment variables (DO NOT SHARE)
+│   ├── .gitignore    # Git Ignore File
+│   └── server.js     # Main backend server file
+├── frontend/      # HTML + CSS + JavaScript (Client-side)
+│   ├── img/          # Images Folder
+│   ├── products/     # Product Assets
+│   ├── index.html    # Home Page
+│   ├── about.html    # About Page
+│   ├── cart.html     # Shopping Cart Page
+│   ├── contact.html  # Contact Page
+│   ├── login.html    # Login Page
+│   ├── product.html  # Product Details Page
+│   ├── signup.html   # Signup Page
+│   ├── styles.css    # Website Styling
+│   └── scripts.js    # API Interactions
 ```
 
 ---
 
-## ⚙️ Prerequisites
-Make sure the following software is installed on your system:
-| Software       | Download Link                         |
-|---------------|---------------------------------------|
-| Node.js       | https://nodejs.org/                  |
-| MongoDB Compass (Optional for Local DB) | https://www.mongodb.com/try/download/compass |
-| Git           | https://git-scm.com/downloads        |
-| VS Code       | https://code.visualstudio.com/       |
+## ✅ Prerequisites
+Ensure the following software is installed on your system:
+
+| Software                                | Download Link                                                            |
+| --------------------------------------- | ------------------------------------------------------------------------ |
+| Node.js                                 | [Download Node.js](https://nodejs.org/)                                  |
+| MongoDB Compass (Optional for local DB) | [Download MongoDB Compass](https://www.mongodb.com/try/download/compass) |
+| Git                                     | [Download Git](https://git-scm.com/downloads)                            |
+| VS Code                                 | [Download VS Code](https://code.visualstudio.com/)                       |
 
 ---
 
@@ -30,118 +54,121 @@ Make sure the following software is installed on your system:
 Inside the **backend** folder, create a `.env` file with the following content:
 
 ```env
-MONGODB_URI=mongodb+srv://Username:Password@Clustername.pbhwb.mongodb.net/hero-shop?retryWrites=true&w=majority&appName=KaranTheHero
+MONGODB_URI=mongodb+srv://Username:Password@Clustername.mongodb.net/hero-shop
 PORT=5000
-JWT_SECRET=Assign_Custom_Secret
+JWT_SECRET=YourCustomSecret
 JWT_EXPIRES_IN=90d
+RAZORPAY_KEY_ID=YourRazorpayKey
+RAZORPAY_KEY_SECRET=YourRazorpaySecret
 ```
-✅ **Never share your `.env` file online or upload it to GitHub!**
+
+✅ **Never share your `.env` file online or commit it to GitHub!**
 
 ---
 
-## 📌 Backend Installation
-1. Open **Command Prompt/Terminal** inside the `backend` folder.
-2. Run the following command to install all backend dependencies:
+## 📌 Backend Installation & Setup
+1. Clone the repository:
 ```bash
-npm install express mongoose bcryptjs jsonwebtoken cors dotenv express-validator compression helmet
+git clone https://github.com/YourUsername/HeroShop.git
+cd HeroShop/backend
 ```
-3. Install Development Dependencies for Auto-Restart during Development:
+2. Install dependencies:
+```bash
+npm install
+```
+3. Install development dependencies for auto-restart:
 ```bash
 npm install nodemon --save-dev
 ```
-4. Start the Backend Server using Nodemon for auto-restart during development:
+4. Start the backend server **locally**:
 ```bash
-npm run dev  # For Development Mode with Auto Restart
+npm run dev  # For Development Mode (Auto Restart)
 ```
-✅ You should see this:
+✅ **If successful, you will see:**
 ```
 MongoDB Connected...
 Server running on port 5000
 ```
-If you want to run the server without auto-restart, use:
+
+### 🚀 Deploying Backend to Render
+1. Go to [Render](https://render.com/) and create an account.
+2. Click **New Web Service** → Connect your GitHub repository.
+3. Set **Start Command** to:
 ```bash
 npm start
 ```
+4. Add the environment variables from `.env` into Render.
+5. Click **Deploy**, and your backend will be live!
+
+✅ **Your API will be available at:** `https://your-render-api.com`
 
 ---
 
 ## 🌐 Frontend Setup
-1. Go to the `frontend` folder.
-2. Install **Live Server Extension** in VS Code.
-3. Right-click on **index.html** → **Open with Live Server**.
-4. Make sure the **scripts.js** API endpoints are set correctly:
+1. Navigate to the frontend folder:
+```bash
+cd ../frontend
+```
+2. Open `index.html` in **Live Server** (for local testing).
+3. Ensure API endpoints in `scripts.js` are correct:
 ```js
 const endpoints = {
-    signup: 'http://localhost:5000/api/auth/signup',
-    login: 'http://localhost:5000/api/auth/login'
+    signup: 'https://your-render-api.com/api/auth/signup',
+    login: 'https://your-render-api.com/api/auth/login'
 };
 ```
-5. Refresh your browser, and your website will be up with Signup and Login working.
+4. Refresh your browser – the website should be live!
+
+### 🚀 Deploying Frontend to Vercel
+1. Go to [Vercel](https://vercel.com/) and create an account.
+2. Click **New Project** → Connect your GitHub repository.
+3. Set **Framework Preset** to **HTML/CSS/JS**.
+4. Click **Deploy**, and your frontend will be live!
+
+✅ **Your website will be available at:** `https://karan-the-hero-shop.vercel.app`
 
 ---
 
 ## 🔌 MongoDB Local Setup (Optional)
-If you want to run MongoDB locally instead of the cloud, make sure MongoDB is installed and running on:
+If you want to use a local MongoDB instance instead of the cloud:
 ```
 mongodb://localhost:27017/hero-shop
 ```
 
 ---
 
-## 🎯 Running the Website
-| Step             | Command            | Folder     |
-|----------------|------------------|----------|
-| Install Backend | `npm install`   | **backend** |
-| Install Dev Dependencies | `npm install nodemon --save-dev` | **backend** |
-| Start Backend  | `npm run dev` (Auto Restart) or `npm start` | **backend** |
-| Start Frontend | Live Server    | **frontend** |
-| Test Signup/Login | http://localhost:5500/signup.html | Browser |
+## 🎯 Running the Full Application
+| Step                     | Command                                     | Folder       |
+| ------------------------ | ------------------------------------------- | ------------ |
+| Install Backend          | `npm install`                               | **backend**  |
+| Install Dev Dependencies | `npm install nodemon --save-dev`            | **backend**  |
+| Start Backend Locally    | `npm run dev`                               | **backend**  |
+| Deploy Backend (Render)  | [Follow Render Setup](https://render.com/)  | **backend**  |
+| Start Frontend Locally   | Open with **Live Server**                   | **frontend** |
+| Deploy Frontend (Vercel) | [Follow Vercel Setup](https://vercel.com/)  | **frontend** |
 
 ---
 
-## 🚀 Push Your Project to GitHub
-To push your **Hero Shop** project folder to GitHub from scratch, follow these steps:
-1. Go to https://github.com/ and create a **New Repository**.
-2. Open **Command Prompt/Terminal** inside your **Hero Shop** root directory.
-3. Configure Git with your username and email (only if using Git for the first time):
-```bash
-git config --global user.name "YourUsername"
-git config --global user.email "youremail@example.com"
-```
-4. Initialize Git in your project folder:
+## 🚀 Pushing to GitHub
+To upload your project to GitHub:
+
+1. Create a new repository on [GitHub](https://github.com/).
+2. In the project root, initialize Git:
 ```bash
 git init
-```
-5. Add all project files to the Git staging area:
-```bash
 git add .
-```
-6. Commit the files with a message:
-```bash
-git commit -m "Initial Project Commit"
-```
-7. Link your local project with the remote GitHub repository:
-```bash
+git commit -m "Initial Commit"
 git remote add origin https://github.com/YourUsername/YourRepositoryName.git
-```
-8. Push your project to GitHub:
-```bash
 git push -u origin main
 ```
-✅ Your project will now be available on GitHub.
+✅ Your project is now on GitHub!
 
 ---
 
-## 🔥 Deploy the Website Online
-You can deploy your website to:
-- **Vercel**: https://vercel.com/
-- **Heroku**: https://www.heroku.com/
-- **Render**: https://www.render.com/
+## 💡 Final Notes
+- **Your project is fully deployed on Vercel (frontend) & Render (backend).**
+- **Follow security best practices:** Never expose your `.env` file.
+- **Ensure your API and frontend URLs are correct after deployment.**
+- **This project is fully tested and working!** 🚀
 
----
-
-## 💪 Final Notes
-✅ This guide is **1000% Tested and Working**.
-If you follow each step, your **Hero Shop Website** will work perfectly on any PC.
-
----
+👨‍💻 Happy Coding!
